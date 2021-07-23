@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TimeDisplay } from './models/time-display';
+import { TimerConfig } from './models/timer-config';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  timerViews = ['Timer1', 'Timer2'];
+  timerViews: TimerConfig[] = [new TimerConfig({} as TimeDisplay, 'Foo', 500), new TimerConfig({} as TimeDisplay, 'Bar', 1000)];
   title = 'awesome-multi-timer';
 }

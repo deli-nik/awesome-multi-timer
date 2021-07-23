@@ -1,3 +1,3 @@
-<div *ngFor="let title of timerViews">
-  <app-add-timer-view [timerTitle]="title" ></app-add-timer-view>
+<div *ngFor="let timer of timerViews">
+  <app-add-timer-view [timerConfig]="timer" ></app-add-timer-view>
 </div>
