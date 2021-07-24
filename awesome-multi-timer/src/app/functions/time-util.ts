@@ -19,5 +19,9 @@ export function ConvertMsToTimeDisplay(totalMilliseconds: number): TimeDisplay {
 }
 
 export function ConvertTimeDisplayToMs(timeDisplay: TimeDisplay): number {
-  return 10000;
+  const { hour, minute, second, millisecond } = timeDisplay;
+  const hourTotalMs = hour * 60 * 60 * 1000;
+  const minuteTotalMs = minute * 60 * 1000;
+  const secondTotalMs = second * 1000;
+  return hourTotalMs + minuteTotalMs + secondTotalMs + millisecond;
 }
