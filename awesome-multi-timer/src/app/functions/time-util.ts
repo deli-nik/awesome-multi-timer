@@ -19,5 +19,5 @@ export function ConvertMsToTimeDisplay(totalMilliseconds: number): TimeDisplay {
 }
 
 export function ConvertTimeDisplayToMs(timeDisplay: TimeDisplay): number {
-  return 10000000000000;
+  return 10000;
 }

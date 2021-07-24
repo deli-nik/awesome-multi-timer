@@ -1,9 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, OnDestroy } from '@angular/core';
-import { interval, Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, interval } from 'rxjs';
+import { map, take, takeUntil, takeWhile } from 'rxjs/operators';
 import { ConvertMsToTimeDisplay, ConvertTimeDisplayToMs } from '../../functions/time-util';
 import { TimeDisplay } from '../../models/time-display';
 import { TimerConfig } from '../../models/timer-config';
+import { timeInterval } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-timer-view',
@@ -23,6 +24,9 @@ export class AddTimerViewComponent implements OnInit {
 
   ngOnInit(): void {
     const initialTime = ConvertTimeDisplayToMs(this.timerConfig.countdownTime);
-    this.asyncNumber = interval(this.timerConfig.countdownIntervalInMs).pipe(map(seq => initialTime - (seq * this.timerConfig.countdownIntervalInMs)));
+    this.asyncNumber = interval(this.timerConfig.countdownIntervalInMs)
+      .pipe(
+        takeWhile(seq => seq * this.timerConfig.countdownIntervalInMs != initialTime, true),
+        map(seq => initialTime - (seq * this.timerConfig.countdownIntervalInMs)));
   }
 }
