@@ -20,8 +20,9 @@ export function ConvertMsToTimeDisplay(totalMilliseconds: number): TimeDisplay {
 
 export function ConvertTimeDisplayToMs(timeDisplay: TimeDisplay): number {
   const { hour, minute, second, millisecond } = timeDisplay;
-  const hourTotalMs = hour * 60 * 60 * 1000;
-  const minuteTotalMs = minute * 60 * 1000;
-  const secondTotalMs = second * 1000;
-  return hourTotalMs + minuteTotalMs + secondTotalMs + millisecond;
+  const hourTotalMs = (hour ?? 0) * 60 * 60 * 1000;
+  const minuteTotalMs = (minute ?? 0) * 60 * 1000;
+  const secondTotalMs = (second ?? 0) * 1000;
+  const millisecondTotalMs = millisecond ?? 0;
+  return hourTotalMs + minuteTotalMs + secondTotalMs + millisecondTotalMs;
 }
