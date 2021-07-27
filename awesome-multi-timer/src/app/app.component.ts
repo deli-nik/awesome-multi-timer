@@ -8,6 +8,9 @@ import { TimerConfig } from './models/timer-config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  timerViews: TimerConfig[] = [new TimerConfig({ second: 10 } as TimeDisplay, 'Foo', 16), new TimerConfig({ second: 10 } as TimeDisplay, 'Bar', 100)];
+  timerViews: TimerConfig[] = [
+    new TimerConfig({ second: 10 } as TimeDisplay, 'Rune Spawn', 17),
+    new TimerConfig({ second: 10 } as TimeDisplay, 'Aegis Expired', 17)
+  ];
   title = 'awesome-multi-timer';
 }

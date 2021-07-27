@@ -1,0 +1,11 @@
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.box {
+    flex: 0 1 150px; /*  No stretching: */
+    margin: 5px;
+}

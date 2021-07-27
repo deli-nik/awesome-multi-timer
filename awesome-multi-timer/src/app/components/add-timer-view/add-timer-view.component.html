@@ -1,6 +1,8 @@
-<p>{{timerConfig.label}}</p>
-<p>Async Count: {{totalTimeLeftInMs | async | timeDisplay}}</p>
-<button *ngIf="isPaused" (click)="onClickPauseResume()">Resume</button>
-<button *ngIf="!isPaused" (click)="onClickPauseResume()">Pause</button>
-<label>Repeat Counter</label>
-<input type="checkbox" (change)="onEnableLoop()"/>
+<div class="parent">
+    <p>{{timerConfig.label}}</p>
+    <p>Async Count: {{totalTimeLeftInMs | async | timeDisplay}}</p>
+    <button *ngIf="isPaused" (click)="onClickPauseResume()">Resume</button>
+    <button *ngIf="!isPaused" (click)="onClickPauseResume()">Pause</button>
+    <label>Repeat Counter</label>
+    <input type="checkbox" (change)="onEnableLoop()"/>
+</div>
